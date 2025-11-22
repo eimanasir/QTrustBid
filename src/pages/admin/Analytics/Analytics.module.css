@@ -1,0 +1,341 @@
+.container {
+  min-height: calc(100vh - 80px);
+  background: var(--background);
+  padding: 40px 20px;
+}
+
+.content {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.period {
+  display: flex;
+  gap: 8px;
+}
+
+.periodBtn {
+  padding: 10px 20px;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.periodBtn:hover {
+  border-color: var(--primary);
+}
+
+.periodBtn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.metricCard {
+  background: var(--surface);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  gap: 20px;
+  border-top: 4px solid;
+  transition: all 0.3s ease;
+}
+
+.metricCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.metricIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metricContent {
+  flex: 1;
+}
+
+.metricLabel {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.metricValue {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.metricChange {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.metricChange.up {
+  color: #4CAF50;
+}
+
+.metricChange.down {
+  color: #F44336;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.section,
+.chartSection {
+  background: var(--surface);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.sectionHeader h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  height: 300px;
+  padding: 20px 0;
+}
+
+.chartBar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.bar {
+  width: 100%;
+  background: linear-gradient(180deg, var(--primary) 0%, #1976D2 100%);
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  transition: all 0.3s ease;
+  min-height: 40px;
+}
+
+.bar:hover {
+  opacity: 0.8;
+}
+
+.barValue {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.barLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.userDistribution {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.distributionItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.distributionInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.distributionLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.distributionCount {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.progressBar {
+  height: 12px;
+  background: var(--background);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, #1976D2 100%);
+  border-radius: 12px;
+  transition: width 0.5s ease;
+}
+
+.percentage {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.propertiesTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--background);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+  border-radius: 12px 12px 0 0;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.tableRow:hover {
+  background: var(--background);
+}
+
+.propertyName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.views,
+.bids {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.revenue {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .period {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .periodBtn {
+    flex: 1;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .tableHeader > div:last-child,
+  .tableRow > div:last-child {
+    display: none;
+  }
+}

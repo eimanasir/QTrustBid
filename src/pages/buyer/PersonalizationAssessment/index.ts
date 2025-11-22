@@ -1,0 +1,1 @@
+export { PersonalizationAssessment } from './PersonalizationAssessment';

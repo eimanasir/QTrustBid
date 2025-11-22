@@ -1,0 +1,1 @@
+export { AIRecommendations } from './AIRecommendations';

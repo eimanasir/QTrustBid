@@ -1,0 +1,138 @@
+.container {
+  min-height: calc(100vh - 80px);
+  background: var(--background);
+  padding: 40px 20px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.bidsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bidCard {
+  background: var(--surface);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.bidCard:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.bidHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+}
+
+.bidHeader h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.bidder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.status {
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status.pending {
+  background: #FFF3E0;
+  color: #E65100;
+}
+
+.status.accepted {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.status.rejected {
+  background: #FFEBEE;
+  color: #C62828;
+}
+
+.bidDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .bidHeader {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .bidDetails {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

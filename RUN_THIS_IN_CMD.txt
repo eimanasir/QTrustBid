@@ -1,0 +1,22 @@
+========================================
+RUN THESE COMMANDS IN CMD (NOT POWERSHELL)
+========================================
+
+Step 1: Build the app
+npm run build
+
+(Wait 30 seconds for build to complete)
+
+Step 2: Run preview server
+npm run preview
+
+Step 3: Open browser to:
+http://localhost:4173
+
+========================================
+THIS WILL WORK - NO CSP ERRORS!
+========================================
+
+Production mode doesn't use eval(), so the CSP error won't happen!
+
+You'll see the full QTrustBid landing page working perfectly!

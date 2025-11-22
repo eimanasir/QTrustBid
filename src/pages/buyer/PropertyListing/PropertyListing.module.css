@@ -1,0 +1,163 @@
+.container {
+  min-height: calc(100vh - 72px);
+  background: var(--bg-app);
+}
+
+.content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--spacing-3xl) var(--spacing-2xl);
+}
+
+.header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.header h1 {
+  font-size: 48px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.header p {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+.toolbar {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  align-items: center;
+}
+
+.searchBar {
+  flex: 1;
+}
+
+.toolbarActions {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.viewToggle {
+  display: flex;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.viewToggle button {
+  padding: var(--spacing-md);
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+}
+
+.viewToggle button:hover {
+  background: var(--bg-hover);
+}
+
+.viewToggle button.active {
+  background: var(--color-primary-500);
+  color: white;
+}
+
+.filters {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: flex-end;
+  box-shadow: var(--shadow-md);
+}
+
+.filterGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.filterGroup label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.priceInputs {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.select {
+  height: 48px;
+  padding: 0 var(--spacing-lg);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.propertyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.propertyGrid.listView {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 1023px) {
+  .content {
+    padding: var(--spacing-xl);
+  }
+  
+  .header h1 {
+    font-size: 36px;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+  }
+  
+  .searchBar {
+    width: 100%;
+  }
+  
+  .toolbarActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .filters {
+    flex-direction: column;
+  }
+  
+  .propertyGrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .content {
+    padding: var(--spacing-lg);
+  }
+  
+  .header h1 {
+    font-size: 28px;
+  }
+  
+  .propertyGrid {
+    grid-template-columns: 1fr;
+  }
+}

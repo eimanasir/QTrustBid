@@ -1,0 +1,306 @@
+.container {
+  min-height: calc(100vh - 80px);
+  background: var(--background);
+  padding: 40px 20px;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section {
+  background: var(--surface);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.sectionHeader {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+}
+
+.sectionIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary) 0%, #1976D2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.sectionHeader > div h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.sectionHeader > div p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.settingItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--background);
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+
+.settingItem:last-child {
+  margin-bottom: 0;
+}
+
+.settingItem:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+}
+
+.settingItem > div:first-child {
+  flex: 1;
+}
+
+.settingItem label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.settingDescription {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.themeButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.themeButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.themeButton:hover {
+  border-color: var(--primary);
+}
+
+.themeButton.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.toggle {
+  position: relative;
+  width: 56px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ccc;
+  border-radius: 32px;
+  transition: 0.3s;
+}
+
+.toggleSlider::before {
+  content: '';
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle input:checked + .toggleSlider {
+  background: var(--primary);
+}
+
+.toggle input:checked + .toggleSlider::before {
+  transform: translateX(24px);
+}
+
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sectionActions {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 2px solid var(--border);
+}
+
+.passwordSection {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 2px solid var(--border);
+}
+
+.passwordSection h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.passwordForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.passwordInput {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.passwordToggle:hover {
+  background: var(--background);
+  color: var(--primary);
+}
+
+.settingItem > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.settingItem > div:first-child > svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.dangerZone {
+  margin-top: 32px;
+  padding: 24px;
+  background: #FFEBEE;
+  border: 2px solid #EF5350;
+  border-radius: 16px;
+}
+
+.dangerZone h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #C62828;
+  margin-bottom: 16px;
+}
+
+.dangerActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 24px;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .settingItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .themeButtons {
+    width: 100%;
+  }
+
+  .themeButton {
+    flex: 1;
+    justify-content: center;
+  }
+}
