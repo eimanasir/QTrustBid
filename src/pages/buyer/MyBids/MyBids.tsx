@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, TrendingDown, Clock, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import { TrendingUp, TrendingDown, Clock, CheckCircle, XCircle, AlertCircle, Calendar } from 'lucide-react';
 import { Bid } from '@/types';
 import { Badge } from '@/components/common/Badge/Badge';
 import { Button } from '@/components/common/Button/Button';
@@ -19,7 +19,6 @@ export const MyBids: React.FC = () => {
       timestamp: new Date().toISOString(),
       status: 'active',
       isPreApproved: true,
-      quantumSignature: 'QS-1234-5678-9012',
     },
     {
       id: '2',
@@ -30,7 +29,6 @@ export const MyBids: React.FC = () => {
       timestamp: new Date(Date.now() - 86400000).toISOString(),
       status: 'outbid',
       isPreApproved: true,
-      quantumSignature: 'QS-2345-6789-0123',
     },
     {
       id: '3',
@@ -41,7 +39,6 @@ export const MyBids: React.FC = () => {
       timestamp: new Date(Date.now() - 172800000).toISOString(),
       status: 'won',
       isPreApproved: true,
-      quantumSignature: 'QS-3456-7890-1234',
     },
   ];
 
@@ -183,7 +180,17 @@ export const MyBids: React.FC = () => {
                       <span>Status: {bid.status}</span>
                     </div>
                     <div className={styles.metaItem}>
-                      <Badge variant="quantum" icon={false}>Quantum Signed</Badge>
+                      <Badge variant="success" icon={false}>Verified</Badge>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.bidSchedule}>
+                  <div className={styles.scheduleInfo}>
+                    <Calendar size={16} />
+                    <div>
+                      <div className={styles.scheduleLabel}>Bidding Window</div>
+                      <div className={styles.scheduleTime}>Dec 15, 2024 • 2:00 PM - 2:30 PM</div>
                     </div>
                   </div>
                 </div>
@@ -191,14 +198,14 @@ export const MyBids: React.FC = () => {
                 <div className={styles.bidActions}>
                   {bid.status === 'active' && (
                     <>
-                      <Button variant="secondary" size="small">View Property</Button>
-                      <Button variant="primary" size="small">Update Bid</Button>
+                      <Button variant="secondary" size="small" onClick={() => window.location.href = `/properties/${bid.propertyId}`}>View Property</Button>
+                      <Button variant="primary" size="small" onClick={() => window.location.href = `/live-bidding/${bid.propertyId}`}>Join Bidding</Button>
                     </>
                   )}
                   {bid.status === 'outbid' && (
                     <>
                       <Button variant="secondary" size="small">View Property</Button>
-                      <Button variant="primary" size="small">Place New Bid</Button>
+                      <Button variant="primary" size="small">Join Next Window</Button>
                     </>
                   )}
                   {bid.status === 'won' && (

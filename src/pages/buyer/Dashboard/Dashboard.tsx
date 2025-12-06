@@ -28,7 +28,7 @@ export const Dashboard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
         >
           <h1>Welcome back, {user?.name}!</h1>
-          <p>Find your dream property with AI-powered recommendations</p>
+          <p>Find your dream property with personalized recommendations</p>
         </motion.div>
 
         <div className={styles.stats}>
@@ -55,8 +55,8 @@ export const Dashboard: React.FC = () => {
               <h2>Recommended for You</h2>
               <p>Based on your preferences and browsing history</p>
             </div>
-            <Link to="/ai-recommendations">
-              <Button variant="ghost" icon={<Sparkles size={20} />}>
+            <Link to="/properties">
+              <Button variant="ghost">
                 View All
               </Button>
             </Link>

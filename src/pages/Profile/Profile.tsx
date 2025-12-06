@@ -60,10 +60,10 @@ export const Profile: React.FC = () => {
                 <h1>{user.name}</h1>
                 <p className={styles.email}>{user.email}</p>
                 <div className={styles.badges}>
-                  <Badge variant={user.role === 'admin' ? 'error' : user.role === 'seller' ? 'success' : 'info'}>
+                  <Badge variant={user.role === 'admin' ? 'error' : 'info'}>
                     {user.role.toUpperCase()}
                   </Badge>
-                  {user.verified && <Badge variant="quantum">✓ Verified</Badge>}
+                  {user.verified && <Badge variant="success">✓ Verified</Badge>}
                 </div>
               </div>
             </div>
@@ -132,20 +132,7 @@ export const Profile: React.FC = () => {
                     />
                   </div>
                   
-                  {user.role === 'seller' && (
-                    <>
-                      <Input
-                        label="Agency Name"
-                        value={formData.agencyName}
-                        onChange={(e) => setFormData({ ...formData, agencyName: e.target.value })}
-                      />
-                      <Input
-                        label="License Number"
-                        value={formData.licenseNumber}
-                        onChange={(e) => setFormData({ ...formData, licenseNumber: e.target.value })}
-                      />
-                    </>
-                  )}
+
                 </div>
               ) : (
                 <div className={styles.infoList}>
@@ -180,28 +167,7 @@ export const Profile: React.FC = () => {
                     </div>
                   )}
                   
-                  {user.role === 'seller' && (
-                    <>
-                      {user.agencyName && (
-                        <div className={styles.infoItem}>
-                          <MapPin size={20} />
-                          <div>
-                            <label>Agency</label>
-                            <p>{user.agencyName}</p>
-                          </div>
-                        </div>
-                      )}
-                      {user.licenseNumber && (
-                        <div className={styles.infoItem}>
-                          <Shield size={20} />
-                          <div>
-                            <label>License Number</label>
-                            <p>{user.licenseNumber}</p>
-                          </div>
-                        </div>
-                      )}
-                    </>
-                  )}
+
                 </div>
               )}
             </div>
@@ -216,7 +182,7 @@ export const Profile: React.FC = () => {
             <div className={styles.card}>
               <h3>Activity Stats</h3>
               <div className={styles.stats}>
-                {user.role === 'buyer' && (
+                {user.role === 'user' && (
                   <>
                     <div className={styles.stat}>
                       <TrendingUp size={24} />
@@ -225,16 +191,11 @@ export const Profile: React.FC = () => {
                         <div className={styles.statLabel}>Total Bids</div>
                       </div>
                     </div>
-                  </>
-                )}
-                
-                {user.role === 'seller' && (
-                  <>
                     <div className={styles.stat}>
                       <MapPin size={24} />
                       <div>
                         <div className={styles.statValue}>{user.totalListings || 0}</div>
-                        <div className={styles.statLabel}>Active Listings</div>
+                        <div className={styles.statLabel}>My Listings</div>
                       </div>
                     </div>
                     <div className={styles.stat}>
@@ -265,7 +226,7 @@ export const Profile: React.FC = () => {
                 <div className={styles.securityItem}>
                   <Shield size={20} />
                   <div>
-                    <p>Quantum-Safe Encryption</p>
+                    <p>Secure Encryption</p>
                     <span className={styles.securityStatus}>Active</span>
                   </div>
                 </div>

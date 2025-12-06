@@ -1,24 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Home, DollarSign, TrendingUp, Activity, AlertCircle, CheckCircle, Clock } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
+import { Users, Home, DollarSign, TrendingUp, Activity, CheckCircle, Clock, BarChart3, AlertCircle } from 'lucide-react';
 import styles from './AdminDashboard.module.css';
 
 export const AdminDashboard: React.FC = () => {
-  const { user } = useAuth();
-
   const stats = [
-    { label: 'Total Users', value: '2,547', change: '+12%', icon: <Users size={24} />, color: '#2196F3' },
-    { label: 'Active Listings', value: '1,234', change: '+8%', icon: <Home size={24} />, color: '#4CAF50' },
-    { label: 'Total Revenue', value: '$2.4M', change: '+23%', icon: <DollarSign size={24} />, color: '#FF9800' },
-    { label: 'Active Bids', value: '456', change: '+15%', icon: <TrendingUp size={24} />, color: '#9C27B0' },
+    { label: 'Total Users', value: '2,547', change: '+12%', goal: 70 },
+    { label: 'Active Listings', value: '1,234', change: '+8%', goal: 75 },
+    { label: 'Total Revenue', value: '$2.4M', change: '+23%', goal: 85 },
+    { label: 'Active Bids', value: '456', change: '+15%', goal: 60 },
+  ];
+
+  const monthlyData = [
+    { month: 'Jan', revenue: 85, users: 120, properties: 90 },
+    { month: 'Feb', revenue: 95, users: 140, properties: 110 },
+    { month: 'Mar', revenue: 110, users: 180, properties: 130 },
+    { month: 'Apr', revenue: 125, users: 220, properties: 150 },
+    { month: 'May', revenue: 140, users: 260, properties: 180 },
+    { month: 'Jun', revenue: 155, users: 310, properties: 210 },
   ];
 
   const systemHealth = [
     { metric: 'Server Status', status: 'Operational', icon: <CheckCircle size={20} />, color: '#4CAF50' },
     { metric: 'Database', status: 'Healthy', icon: <CheckCircle size={20} />, color: '#4CAF50' },
     { metric: 'API Response', status: '45ms avg', icon: <Activity size={20} />, color: '#2196F3' },
-    { metric: 'Quantum Encryption', status: 'Active', icon: <CheckCircle size={20} />, color: '#4CAF50' },
+    { metric: 'Security', status: 'Active', icon: <CheckCircle size={20} />, color: '#4CAF50' },
   ];
 
   const recentActivity = [
@@ -39,19 +45,12 @@ export const AdminDashboard: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <motion.div
-          className={styles.welcome}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
+        <div className={styles.welcome}>
           <div>
-            <h1>Admin Dashboard</h1>
-            <p>Welcome back, {user?.name} • System Overview</p>
+            <h1>Dashboard</h1>
+            <p>Dashboard / Sales</p>
           </div>
-          <div className={styles.timestamp}>
-            Last updated: {new Date().toLocaleTimeString()}
-          </div>
-        </motion.div>
+        </div>
 
         <div className={styles.stats}>
           {stats.map((stat, index) => (
@@ -60,22 +59,81 @@ export const AdminDashboard: React.FC = () => {
               className={styles.statCard}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              style={{ borderTopColor: stat.color }}
+              transition={{ delay: index * 0.05 }}
             >
-              <div className={styles.statIcon} style={{ color: stat.color }}>
-                {stat.icon}
+              <div className={styles.statLabel}>{stat.label}</div>
+              <div className={styles.statValue}>{stat.value}</div>
+              <div className={styles.statChange} style={{ color: stat.change.startsWith('+') ? '#4CAF50' : '#F44336' }}>
+                {stat.change}
               </div>
-              <div className={styles.statContent}>
-                <div className={styles.statValue}>{stat.value}</div>
-                <div className={styles.statLabel}>{stat.label}</div>
-                <div className={styles.statChange} style={{ color: stat.color }}>
-                  {stat.change} from last month
-                </div>
+              <div className={styles.progressBar}>
+                <div className={styles.progressFill} style={{ width: `${stat.goal}%` }} />
+              </div>
+              <div className={styles.goalText}>
+                <span>Monthly Goal</span>
+                <span>{stat.goal}%</span>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          className={styles.chartSection}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <div className={styles.sectionHeader}>
+            <h2><BarChart3 size={20} /> Monthly Overview</h2>
+          </div>
+          <div className={styles.chart}>
+            <div className={styles.chartBars}>
+              {monthlyData.map((data, index) => {
+                const maxValue = 310;
+                const revenueHeight = (data.revenue / maxValue) * 100;
+                const usersHeight = (data.users / maxValue) * 100;
+                const propertiesHeight = (data.properties / maxValue) * 100;
+                
+                return (
+                  <div key={index} className={styles.chartBar}>
+                    <div className={styles.barGroup}>
+                      <div 
+                        className={styles.bar} 
+                        style={{ height: `${revenueHeight}%`, background: '#2196F3' }}
+                        title={`Revenue: ${data.revenue}`}
+                      />
+                      <div 
+                        className={styles.bar} 
+                        style={{ height: `${usersHeight}%`, background: '#4CAF50' }}
+                        title={`Users: ${data.users}`}
+                      />
+                      <div 
+                        className={styles.bar} 
+                        style={{ height: `${propertiesHeight}%`, background: '#FF9800' }}
+                        title={`Properties: ${data.properties}`}
+                      />
+                    </div>
+                    <div className={styles.barLabel}>{data.month}</div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className={styles.chartLegend}>
+              <div className={styles.legendItem}>
+                <div className={styles.legendColor} style={{ background: '#2196F3' }} />
+                <span>Revenue</span>
+              </div>
+              <div className={styles.legendItem}>
+                <div className={styles.legendColor} style={{ background: '#4CAF50' }} />
+                <span>Users</span>
+              </div>
+              <div className={styles.legendItem}>
+                <div className={styles.legendColor} style={{ background: '#FF9800' }} />
+                <span>Properties</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         <div className={styles.grid}>
           <motion.div

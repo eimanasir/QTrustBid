@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Lock, Shield } from 'lucide-react';
+import { Mail, Lock } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/common/Button/Button';
 import { Input } from '@/components/common/Input/Input';
-import { Badge } from '@/components/common/Badge/Badge';
 import styles from './Login.module.css';
 
 export const Login: React.FC = () => {
@@ -40,10 +39,9 @@ export const Login: React.FC = () => {
         transition={{ duration: 0.4 }}
       >
         <div className={styles.header}>
-          <Shield size={48} className={styles.logo} />
-          <h1>Welcome Back to QTrustBid</h1>
-          <p>Quantum-Safe Real Estate Bidding</p>
-          <Badge variant="quantum">Quantum Protected</Badge>
+          <img src="/logo.png" alt="QTrustBid" className={styles.logoImage} />
+          <h1>Welcome Back</h1>
+          <p>Sign in to continue</p>
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -80,22 +78,9 @@ export const Login: React.FC = () => {
           {error && <div className={styles.error}>{error}</div>}
 
           <Button type="submit" fullWidth loading={loading}>
-            Login Securely
+            Sign In
           </Button>
         </form>
-
-        <div className={styles.divider}>
-          <span>or continue with</span>
-        </div>
-
-        <div className={styles.socialButtons}>
-          <Button variant="secondary" fullWidth>
-            Google
-          </Button>
-          <Button variant="secondary" fullWidth>
-            Apple
-          </Button>
-        </div>
 
         <div className={styles.footer}>
           Don't have an account?{' '}

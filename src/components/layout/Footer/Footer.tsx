@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Twitter, Facebook, Instagram, Linkedin, Github } from 'lucide-react';
-import { Badge } from '@/components/common/Badge/Badge';
+import { Twitter, Facebook, Instagram, Linkedin, Github } from 'lucide-react';
+
 import styles from './Footer.module.css';
 
 export const Footer: React.FC = () => {
@@ -12,7 +12,6 @@ export const Footer: React.FC = () => {
       { label: 'Browse Properties', to: '/properties' },
       { label: 'How It Works', to: '/how-it-works' },
       { label: 'Pricing', to: '/pricing' },
-      { label: 'AI Features', to: '/ai-recommendations' },
     ],
     company: [
       { label: 'About Us', to: '/about' },
@@ -48,13 +47,11 @@ export const Footer: React.FC = () => {
         <div className={styles.top}>
           <div className={styles.brand}>
             <Link to="/" className={styles.logo}>
-              <Shield size={32} />
-              <span>QTrustBid</span>
+              <img src="/logo.png" alt="QTrustBid" className={styles.logoImage} />
             </Link>
             <p className={styles.tagline}>
-              The future of real estate bidding, powered by quantum-safe technology
+              The future of real estate bidding - secure, transparent, and efficient
             </p>
-            <Badge variant="quantum">Quantum Protected</Badge>
             <div className={styles.social}>
               {socialLinks.map(social => (
                 <a
@@ -123,7 +120,7 @@ export const Footer: React.FC = () => {
             © {currentYear} QTrustBid. All rights reserved.
           </p>
           <p className={styles.security}>
-            🔒 Secured with Dilithium Post-Quantum Cryptography
+            🔒 Secured with Industry-Standard Encryption
           </p>
         </div>
       </div>

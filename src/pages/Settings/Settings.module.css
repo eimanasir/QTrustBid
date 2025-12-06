@@ -1,7 +1,7 @@
 .container {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 90px);
   background: var(--background);
-  padding: 40px 20px;
+  padding: 16px;
 }
 
 .content {
@@ -11,31 +11,31 @@
 
 .header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 16px;
 }
 
 .header h1 {
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 
 .header p {
-  font-size: 16px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
 .sections {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 
 .section {
   background: var(--surface);
-  padding: 32px;
-  border-radius: 20px;
+  padding: 16px;
+  border-radius: 10px;
   box-shadow: var(--shadow-md);
   transition: all 0.3s ease;
 }
@@ -46,35 +46,34 @@
 
 .sectionHeader {
   display: flex;
-  gap: 20px;
+  gap: 12px;
   align-items: flex-start;
-  margin-bottom: 28px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid var(--border);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
 }
 
 .sectionIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   background: linear-gradient(135deg, var(--primary) 0%, #1976D2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
 }
 
 .sectionHeader > div h2 {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .sectionHeader > div p {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-secondary);
 }
 
@@ -82,12 +81,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 12px;
   background: var(--background);
-  border-radius: 16px;
-  border: 2px solid var(--border);
+  border-radius: 8px;
+  border: 1px solid var(--border);
   transition: all 0.2s;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .settingItem:last-child {
@@ -105,14 +104,14 @@
 
 .settingItem label {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .settingDescription {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-secondary);
 }
 
@@ -148,8 +147,8 @@
 
 .toggle {
   position: relative;
-  width: 56px;
-  height: 32px;
+  width: 48px;
+  height: 26px;
   cursor: pointer;
 }
 

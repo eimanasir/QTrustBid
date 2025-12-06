@@ -19,7 +19,7 @@ export const Favorites: React.FC = () => {
       case 'price':
         return a.price - b.price;
       case 'match':
-        return (b.aiMatchScore || 0) - (a.aiMatchScore || 0);
+        return (b.matchScore || 0) - (a.matchScore || 0);
       default:
         return 0;
     }

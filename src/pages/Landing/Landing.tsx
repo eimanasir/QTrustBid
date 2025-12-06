@@ -1,80 +1,62 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Sparkles, TrendingUp, Lock, Zap, Users, CheckCircle, ArrowRight } from 'lucide-react';
+import { Home, TrendingUp, Shield, Users, CheckCircle, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/common/Button/Button';
-import { Badge } from '@/components/common/Badge/Badge';
-import { PropertyCard } from '@/components/property/PropertyCard/PropertyCard';
-import { mockProperties } from '@/data/mockProperties';
 import styles from './Landing.module.css';
 
 const Landing: React.FC = () => {
-  const featuredProperties = mockProperties.slice(0, 3);
-
   const features = [
-    {
-      icon: <Shield size={32} />,
-      title: 'Quantum-Safe Security',
-      description: 'Your data protected with post-quantum cryptography that\'s future-proof against quantum computers.',
-    },
-    {
-      icon: <Sparkles size={32} />,
-      title: 'AI-Powered Matching',
-      description: 'Smart recommendations based on your preferences, budget, and browsing behavior.',
-    },
-    {
-      icon: <TrendingUp size={32} />,
-      title: 'Real-Time Bidding',
-      description: 'Live bid updates, instant notifications, and transparent bidding process.',
-    },
-    {
-      icon: <Lock size={32} />,
-      title: 'No Hidden Fees',
-      description: 'Transparent pricing with no agent commissions. Save thousands on your purchase.',
-    },
-    {
-      icon: <Zap size={32} />,
-      title: 'Lightning Fast',
-      description: 'Close deals faster without the middleman. Direct communication with sellers.',
-    },
-    {
-      icon: <Users size={32} />,
-      title: 'Verified Users',
-      description: 'All users are verified with quantum-safe identity verification for your safety.',
-    },
+    { icon: <Home size={20} />, title: 'Browse Properties', desc: 'Explore verified listings' },
+    { icon: <TrendingUp size={20} />, title: 'Place Bids', desc: 'Real-time bidding' },
+    { icon: <Shield size={20} />, title: 'Secure Deals', desc: 'Protected transactions' },
+    { icon: <Users size={20} />, title: 'Direct Contact', desc: 'Connect instantly' },
   ];
 
-  const benefits = [
-    'No real estate agent fees',
-    'Quantum-safe encryption',
-    'AI property recommendations',
-    'Real-time bidding system',
-    'Direct seller communication',
-    'Transparent pricing',
-  ];
+  useEffect(() => {
+    // Smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  const scrollToNext = () => {
+    const sections = document.querySelectorAll('section');
+    const currentScroll = window.scrollY;
+    
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      const sectionTop = section.offsetTop;
+      
+      if (sectionTop > currentScroll + 100) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      }
+    }
+  };
 
   return (
     <div className={styles.landing}>
       {/* Hero Section */}
-      <section className={styles.hero}>
+      <section className={styles.hero} id="hero">
         <div className={styles.heroContent}>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <Badge variant="quantum">Powered by Quantum-Safe Technology</Badge>
             <h1 className={styles.heroTitle}>
-              The Future of Real Estate Bidding
+              Real Estate Bidding<br />Made Simple
             </h1>
             <p className={styles.heroSubtitle}>
-              Buy and sell properties directly with quantum-safe encryption, AI-powered recommendations, 
-              and transparent real-time bidding. No agents. No hidden fees.
+              QTrustBid is a secure, transparent platform that connects buyers and sellers directly. 
+              No agents. No hidden fees. Just simple, efficient real estate transactions.
             </p>
             <div className={styles.heroActions}>
               <Link to="/signup">
-                <Button variant="primary" size="large" icon={<ArrowRight size={20} />}>
-                  Get Started Free
+                <Button variant="primary" size="large">
+                  Get Started
                 </Button>
               </Link>
               <Link to="/properties">
@@ -83,167 +65,131 @@ const Landing: React.FC = () => {
                 </Button>
               </Link>
             </div>
-            <div className={styles.heroStats}>
+            <div className={styles.stats}>
               <div className={styles.stat}>
-                <div className={styles.statValue}>$2.5B+</div>
-                <div className={styles.statLabel}>Properties Listed</div>
-              </div>
-              <div className={styles.stat}>
-                <div className={styles.statValue}>50K+</div>
+                <div className={styles.statValue}>2,500+</div>
                 <div className={styles.statLabel}>Active Users</div>
               </div>
               <div className={styles.stat}>
-                <div className={styles.statValue}>98%</div>
-                <div className={styles.statLabel}>Satisfaction Rate</div>
+                <div className={styles.statValue}>1,200+</div>
+                <div className={styles.statLabel}>Properties</div>
+              </div>
+              <div className={styles.stat}>
+                <div className={styles.statValue}>$2.4M+</div>
+                <div className={styles.statLabel}>Transactions</div>
               </div>
             </div>
           </motion.div>
         </div>
-        <motion.div
-          className={styles.heroImage}
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" 
-            alt="Modern home"
-          />
-        </motion.div>
+        
+        <button className={styles.scrollIndicator} onClick={scrollToNext} aria-label="Scroll to next section">
+          <ChevronDown size={24} />
+        </button>
       </section>
 
       {/* Features Section */}
-      <section className={styles.features}>
+      <section className={styles.features} id="features">
         <div className={styles.container}>
           <motion.div
-            className={styles.sectionHeader}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <h2>Why Choose QTrustBid?</h2>
-            <p>Revolutionary technology meets transparent real estate transactions</p>
+            <h2 className={styles.sectionTitle}>How It Works</h2>
+            <div className={styles.featureGrid}>
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  className={styles.featureCard}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className={styles.featureIcon}>{feature.icon}</div>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
-
-          <div className={styles.featureGrid}>
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                className={styles.featureCard}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className={styles.featureIcon}>{feature.icon}</div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Properties */}
-      <section className={styles.properties}>
-        <div className={styles.container}>
-          <motion.div
-            className={styles.sectionHeader}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>Featured Properties</h2>
-            <p>Discover your dream home from our curated selection</p>
-          </motion.div>
-
-          <div className={styles.propertyGrid}>
-            {featuredProperties.map((property, index) => (
-              <motion.div
-                key={property.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <PropertyCard property={property} showAIMatch />
-              </motion.div>
-            ))}
-          </div>
-
-          <div className={styles.ctaCenter}>
-            <Link to="/properties">
-              <Button variant="primary" size="large">
-                View All Properties
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className={styles.benefits}>
+      <section className={styles.benefits} id="benefits">
         <div className={styles.container}>
-          <div className={styles.benefitsContent}>
-            <motion.div
-              className={styles.benefitsText}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2>Save Thousands. Buy Smarter.</h2>
-              <p>
-                Traditional real estate transactions cost you 5-6% in agent fees. 
-                With QTrustBid, you deal directly with sellers and keep more money in your pocket.
-              </p>
-              <ul className={styles.benefitsList}>
-                {benefits.map((benefit) => (
-                  <li key={benefit}>
-                    <CheckCircle size={20} />
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link to="/signup">
-                <Button variant="primary" size="large">
-                  Start Saving Today
-                </Button>
-              </Link>
-            </motion.div>
-            <motion.div
-              className={styles.benefitsImage}
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=600" 
-                alt="Happy family"
-              />
-            </motion.div>
-          </div>
+          <motion.div
+            className={styles.benefitsContent}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className={styles.benefitsTitle}>Why Choose QTrustBid?</h2>
+            <div className={styles.benefitsGrid}>
+              <div className={styles.benefitItem}>
+                <div className={styles.benefitIcon}>
+                  <CheckCircle size={20} />
+                </div>
+                <div className={styles.benefitText}>
+                  <h3>No Agent Fees</h3>
+                  <p>Save thousands on commissions</p>
+                </div>
+              </div>
+              <div className={styles.benefitItem}>
+                <div className={styles.benefitIcon}>
+                  <Shield size={20} />
+                </div>
+                <div className={styles.benefitText}>
+                  <h3>Secure Transactions</h3>
+                  <p>Industry-standard encryption</p>
+                </div>
+              </div>
+              <div className={styles.benefitItem}>
+                <div className={styles.benefitIcon}>
+                  <TrendingUp size={20} />
+                </div>
+                <div className={styles.benefitText}>
+                  <h3>Real-Time Bidding</h3>
+                  <p>Live updates and notifications</p>
+                </div>
+              </div>
+              <div className={styles.benefitItem}>
+                <div className={styles.benefitIcon}>
+                  <Users size={20} />
+                </div>
+                <div className={styles.benefitText}>
+                  <h3>Direct Communication</h3>
+                  <p>Connect with sellers instantly</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className={styles.cta}>
+      <section className={styles.cta} id="cta">
         <div className={styles.container}>
           <motion.div
             className={styles.ctaContent}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <h2>Ready to Find Your Dream Home?</h2>
-            <p>Join thousands of buyers and sellers using quantum-safe technology</p>
+            <h2>Ready to Get Started?</h2>
+            <p>Join thousands using QTrustBid for secure real estate transactions</p>
             <div className={styles.ctaActions}>
               <Link to="/signup">
                 <Button variant="primary" size="large">
-                  Create Free Account
+                  Create Account
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button variant="secondary" size="large">
+                <Button variant="ghost" size="large">
                   Contact Us
                 </Button>
               </Link>

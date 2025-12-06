@@ -39,11 +39,11 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
         />
         
         <div className={styles.badges}>
-          {property.isQuantumVerified && (
-            <Badge variant="quantum">Quantum Safe</Badge>
+          {property.isVerified && (
+            <Badge variant="success">Verified</Badge>
           )}
-          {showAIMatch && property.aiMatchScore && (
-            <Badge variant="ai">{property.aiMatchScore}% Match</Badge>
+          {showAIMatch && property.matchScore && (
+            <Badge variant="info">{property.matchScore}% Match</Badge>
           )}
         </div>
 

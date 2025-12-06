@@ -1,5 +1,5 @@
 // User Types
-export type UserRole = 'buyer' | 'seller' | 'admin';
+export type UserRole = 'user' | 'admin';
 
 export interface User {
   id: string;
@@ -47,8 +47,8 @@ export interface Property {
   sellerId: string;
   sellerName: string;
   sellerRating?: number;
-  isQuantumVerified: boolean;
-  aiMatchScore?: number;
+  isVerified: boolean;
+  matchScore?: number;
   viewCount: number;
   bidCount: number;
   isFavorited?: boolean;
@@ -70,7 +70,6 @@ export interface Bid {
   timestamp: string;
   status: 'active' | 'outbid' | 'won' | 'lost' | 'withdrawn';
   isPreApproved: boolean;
-  quantumSignature: string;
 }
 
 // AI Recommendation Types

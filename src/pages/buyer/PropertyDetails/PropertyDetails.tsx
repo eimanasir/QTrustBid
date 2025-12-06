@@ -24,8 +24,8 @@ export const PropertyDetails: React.FC = () => {
         <img src={property.images[0]} alt={property.title} className={styles.heroImage} />
         <div className={styles.heroOverlay}>
           <div className={styles.heroBadges}>
-            {property.isQuantumVerified && <Badge variant="quantum">Quantum Safe</Badge>}
-            {property.aiMatchScore && <Badge variant="ai">{property.aiMatchScore}% Match</Badge>}
+            {property.isVerified && <Badge variant="success">Verified</Badge>}
+            {property.matchScore && <Badge variant="info">{property.matchScore}% Match</Badge>}
           </div>
         </div>
       </motion.div>

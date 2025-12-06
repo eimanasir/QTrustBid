@@ -1,7 +1,7 @@
 .container {
-  min-height: calc(100vh - 80px);
-  background: var(--background);
-  padding: 40px 20px;
+  min-height: calc(100vh - 90px);
+  background: var(--bg-app);
+  padding: 16px 20px;
 }
 
 .content {
@@ -13,18 +13,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .header h1 {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .header p {
-  font-size: 16px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -35,9 +35,10 @@
 }
 
 .listingCard {
-  background: var(--surface);
-  border-radius: 16px;
-  box-shadow: var(--shadow-md);
+  background: var(--bg-surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-default);
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -56,7 +57,7 @@
 }
 
 .listingHeader:hover {
-  background: var(--background);
+  background: var(--bg-hover);
 }
 
 .listingMainInfo {
@@ -97,7 +98,7 @@
 .listingPrice {
   font-size: 24px;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--color-primary-500);
 }
 
 .listingStats {
@@ -117,8 +118,8 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: var(--background);
-  border: 2px solid var(--border);
+  background: var(--bg-app);
+  border: 1px solid var(--border-default);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,13 +129,13 @@
 }
 
 .expandBtn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-500);
 }
 
 .listingDetails {
   padding: 0 24px 24px;
-  border-top: 2px solid var(--border);
+  border-top: 1px solid var(--border-default);
   overflow: hidden;
 }
 
@@ -164,7 +165,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: var(--background);
+  background: var(--bg-app);
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
@@ -185,7 +186,7 @@
 
 .performanceStat {
   padding: 16px;
-  background: var(--background);
+  background: var(--bg-app);
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
@@ -201,14 +202,14 @@
 .statValue {
   font-size: 20px;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--color-primary-500);
 }
 
 .detailsActions {
   display: flex;
   gap: 12px;
   padding-top: 24px;
-  border-top: 2px solid var(--border);
+  border-top: 1px solid var(--border-default);
 }
 
 /* Modal Styles */
@@ -228,8 +229,8 @@
 
 .modal,
 .deleteModal {
-  background: var(--surface);
-  border-radius: 20px;
+  background: var(--bg-surface);
+  border-radius: 16px;
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
@@ -242,7 +243,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid var(--border-default);
 }
 
 .modalHeader h2 {
@@ -255,7 +256,7 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: var(--background);
+  background: var(--bg-app);
   border: none;
   display: flex;
   align-items: center;
@@ -266,7 +267,7 @@
 }
 
 .closeBtn:hover {
-  background: var(--primary);
+  background: var(--color-primary-500);
   color: white;
 }
 
@@ -277,7 +278,7 @@
 .editInfo,
 .deleteInfo {
   padding: 20px;
-  background: var(--background);
+  background: var(--bg-app);
   border-radius: 12px;
   margin: 20px 0;
 }

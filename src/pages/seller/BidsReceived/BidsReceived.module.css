@@ -1,7 +1,7 @@
 .container {
-  min-height: calc(100vh - 80px);
-  background: var(--background);
-  padding: 40px 20px;
+  min-height: calc(100vh - 70px);
+  background: var(--bg-app);
+  padding: 24px;
 }
 
 .content {
@@ -32,10 +32,11 @@
 }
 
 .bidCard {
-  background: var(--surface);
-  padding: 28px;
-  border-radius: 16px;
-  box-shadow: var(--shadow-md);
+  background: var(--bg-surface);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-default);
   transition: all 0.3s ease;
 }
 
@@ -48,9 +49,9 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid var(--border);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-default);
 }
 
 .bidHeader h3 {
@@ -102,9 +103,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--color-primary-500);
 }
 
 .time {

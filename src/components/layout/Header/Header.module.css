@@ -2,52 +2,64 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-surface);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-default);
   transition: box-shadow var(--transition-base) var(--ease-out);
-}
-
-[data-theme='dark'] .header {
-  background: rgba(30, 30, 30, 0.95);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 var(--spacing-2xl);
-  height: 72px;
+  padding: 0 var(--spacing-xl);
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-xl);
+  position: relative;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  font-size: 24px;
+  gap: var(--spacing-sm);
+  font-size: 20px;
   font-weight: 700;
-  color: var(--color-primary-500);
+  color: #4a9eff;
   text-decoration: none;
+}
+
+.logoImage {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1.4);
+  margin: 0 -30px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-xl);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
 }
 
 .nav a {
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-weight: 500;
+  font-size: 14px;
   text-decoration: none;
   transition: color var(--transition-base) var(--ease-out);
 }
 
 .nav a:hover {
-  color: var(--color-primary-500);
+  color: var(--text-primary);
 }
 
 .actions {
@@ -57,8 +69,8 @@
 }
 
 .iconBtn {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;

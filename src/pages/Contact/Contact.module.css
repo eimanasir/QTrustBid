@@ -4,30 +4,30 @@
 }
 
 .content {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-4xl) var(--spacing-2xl);
+  padding: var(--spacing-2xl) var(--spacing-xl);
 }
 
 .header {
   text-align: center;
-  margin-bottom: var(--spacing-4xl);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .header h1 {
-  font-size: 48px;
-  margin-bottom: var(--spacing-md);
+  font-size: 28px;
+  margin-bottom: var(--spacing-sm);
 }
 
 .header p {
-  font-size: 20px;
+  font-size: 14px;
   color: var(--text-secondary);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: var(--spacing-4xl);
+  grid-template-columns: 300px 1fr;
+  gap: var(--spacing-2xl);
 }
 
 .contactInfo {
@@ -38,22 +38,22 @@
 
 .infoCard {
   display: flex;
-  gap: var(--spacing-lg);
-  padding: var(--spacing-xl);
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
   background: var(--bg-surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
 }
 
 .infoIcon {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--color-primary-50);
   color: var(--color-primary-500);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   flex-shrink: 0;
 }
 
@@ -62,60 +62,62 @@
 }
 
 .infoCard h3 {
-  font-size: 18px;
-  margin-bottom: var(--spacing-sm);
+  font-size: 14px;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
 }
 
 .infoValue {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .infoDescription {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-secondary);
 }
 
 .liveChat {
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-xl);
   background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-accent-500) 100%);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   color: white;
   text-align: center;
 }
 
 .liveChat svg {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .liveChat h3 {
-  font-size: 24px;
-  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+  margin-bottom: var(--spacing-xs);
 }
 
 .liveChat p {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
   opacity: 0.9;
+  font-size: 13px;
 }
 
 .formContainer {
   background: var(--bg-surface);
-  padding: var(--spacing-3xl);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
 }
 
 .form h2 {
-  font-size: 32px;
-  margin-bottom: var(--spacing-lg);
+  font-size: 20px;
+  margin-bottom: var(--spacing-md);
 }
 
 .inputGroup {
@@ -133,8 +135,8 @@
 .select,
 .textarea {
   width: 100%;
-  padding: 12px var(--spacing-lg);
-  font-size: 16px;
+  padding: 8px var(--spacing-md);
+  font-size: 14px;
   font-family: inherit;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
@@ -144,13 +146,13 @@
 }
 
 .select {
-  height: 48px;
+  height: 40px;
   cursor: pointer;
 }
 
 .textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 80px;
 }
 
 .select:focus,

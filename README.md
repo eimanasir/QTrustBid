@@ -1,27 +1,25 @@
-# QTrustBid - Quantum-Safe Real Estate Bidding Platform
+# QTrustBid - Real Estate Bidding Platform
 
-A modern, secure real estate bidding platform featuring quantum-safe encryption, AI-powered recommendations, and role-based access control.
+A modern, secure real estate bidding platform featuring personalized recommendations and role-based access control.
 
 ## 🚀 Features
 
-### For Buyers
-- AI-Powered Property Recommendations
+### For Users (Buyers & Sellers)
+- Personalized Property Recommendations
 - Real-Time Bidding System
+- Property Management & Listings
+- Bid Management (Place/Accept/Reject)
 - Personalization Assessment
 - Favorites & Bid Tracking
 - Live Chat Support
-
-### For Sellers/Agents
-- Property Management
-- Bid Management (Accept/Reject)
 - Performance Analytics
-- Add/Edit/Delete Listings
 
 ### For Admins
 - User Management
 - Property Verification
 - Analytics Dashboard
 - Reports Center
+- Platform Monitoring
 
 ## 🛠️ Tech Stack
 
@@ -41,8 +39,8 @@ npm run dev
 ## 🔐 Test Credentials
 
 **Admin**: admin@qtrustbid.com / admin123  
-**Seller**: seller@qtrustbid.com / seller123  
-**Buyer**: buyer@qtrustbid.com / buyer123
+**User** (can buy & sell): user@qtrustbid.com / user123  
+**User** (alternative): john@qtrustbid.com / john123
 
 ## 📄 License
 

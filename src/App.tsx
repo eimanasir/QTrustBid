@@ -9,13 +9,12 @@ import Landing from '@/pages/Landing/Landing';
 import { Login } from '@/pages/auth/Login/Login';
 import { Signup } from '@/pages/auth/Signup/Signup';
 import { Dashboard } from '@/pages/buyer/Dashboard/Dashboard';
-import { SellerDashboard } from '@/pages/seller/SellerDashboard/SellerDashboard';
+
 import { AdminDashboard } from '@/pages/admin/AdminDashboard/AdminDashboard';
 import { PropertyListing } from '@/pages/buyer/PropertyListing/PropertyListing';
 import { PropertyDetails } from '@/pages/buyer/PropertyDetails/PropertyDetails';
 import { MyBids } from '@/pages/buyer/MyBids/MyBids';
 import { Favorites } from '@/pages/buyer/Favorites/Favorites';
-import { AIRecommendations } from '@/pages/buyer/AIRecommendations/AIRecommendations';
 import { Profile } from '@/pages/Profile/Profile';
 import { Settings } from '@/pages/Settings/SettingsPage';
 import { Notifications } from '@/pages/Notifications/Notifications';
@@ -32,6 +31,7 @@ import { AddProperty } from '@/pages/seller/AddProperty/AddProperty';
 import { BidsReceived } from '@/pages/seller/BidsReceived/BidsReceived';
 // Buyer pages
 import { PersonalizationAssessment } from '@/pages/buyer/PersonalizationAssessment/PersonalizationAssessment';
+import { LiveBidding } from '@/pages/buyer/LiveBidding/LiveBidding';
 import '@/styles/global.css';
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -49,8 +49,6 @@ const DashboardRouter: React.FC = () => {
   
   if (user?.role === 'admin') {
     return <AdminDashboard />;
-  } else if (user?.role === 'seller') {
-    return <SellerDashboard />;
   } else {
     return <Dashboard />;
   }
@@ -110,14 +108,6 @@ const AppRoutes: React.FC = () => {
         }
       />
       <Route
-        path="/ai-recommendations"
-        element={
-          <PrivateRoute>
-            <AIRecommendations />
-          </PrivateRoute>
-        }
-      />
-      <Route
         path="/profile"
         element={
           <PrivateRoute>
@@ -155,6 +145,7 @@ const AppRoutes: React.FC = () => {
       
       {/* Buyer Routes */}
       <Route path="/personalization" element={<PrivateRoute><PersonalizationAssessment /></PrivateRoute>} />
+      <Route path="/live-bidding/:id" element={<PrivateRoute><LiveBidding /></PrivateRoute>} />
     </Routes>
   );
 };

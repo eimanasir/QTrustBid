@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Bell, User, Moon, Sun, Shield, TrendingUp, CheckCircle } from 'lucide-react';
+import { Search, Bell, User, Moon, Sun, TrendingUp, CheckCircle } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/common/Button/Button';
@@ -12,12 +12,29 @@ export const Header: React.FC = () => {
   const [showSearch, setShowSearch] = React.useState(false);
   const [showNotifications, setShowNotifications] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const notificationsRef = React.useRef<HTMLDivElement>(null);
   
   const notifications = [
     { id: '1', type: 'bid', message: 'You have been outbid on Modern Downtown Condo', time: '5 min ago' },
     { id: '2', type: 'message', message: 'New message from seller', time: '1 hour ago' },
     { id: '3', type: 'success', message: 'Your bid was accepted!', time: '2 hours ago' },
   ];
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (notificationsRef.current && !notificationsRef.current.contains(event.target as Node)) {
+        setShowNotifications(false);
+      }
+    };
+
+    if (showNotifications) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showNotifications]);
 
   const toggleTheme = () => {
     setTheme(effectiveTheme === 'light' ? 'dark' : 'light');
@@ -34,38 +51,33 @@ export const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
-          <Shield size={32} />
-          <span>QTrustBid</span>
+          <img src="/logo.png" alt="QTrustBid" className={styles.logoImage} />
         </Link>
 
-        {isAuthenticated && (
-          <nav className={styles.nav}>
-            {user?.role === 'buyer' && (
-              <>
-                <Link to="/properties">Browse</Link>
-                <Link to="/my-bids">My Bids</Link>
-                <Link to="/favorites">Favorites</Link>
-                <Link to="/ai-recommendations">AI Recs</Link>
-              </>
-            )}
-            {user?.role === 'seller' && (
-              <>
-                <Link to="/properties">Browse</Link>
-                <Link to="/my-listings">My Listings</Link>
-                <Link to="/add-property">Add Property</Link>
-                <Link to="/bids-received">Bids Received</Link>
-              </>
-            )}
-            {user?.role === 'admin' && (
+        <nav className={styles.nav}>
+          {isAuthenticated ? (
+            user?.role === 'admin' ? (
               <>
                 <Link to="/admin/users">Users</Link>
                 <Link to="/admin/properties">Properties</Link>
                 <Link to="/admin/analytics">Analytics</Link>
                 <Link to="/admin/reports">Reports</Link>
               </>
-            )}
-          </nav>
-        )}
+            ) : (
+              <>
+                <Link to="/properties">Browse</Link>
+                <Link to="/my-listings">My Listings</Link>
+                <Link to="/my-bids">My Bids</Link>
+                <Link to="/favorites">Favorites</Link>
+              </>
+            )
+          ) : (
+            <>
+              <Link to="/contact">Contact</Link>
+              <Link to="/faq">FAQ</Link>
+            </>
+          )}
+        </nav>
 
         <div className={styles.actions}>
           {isAuthenticated && (
@@ -137,7 +149,7 @@ export const Header: React.FC = () => {
 
         {/* Notifications Dropdown */}
         {showNotifications && isAuthenticated && (
-          <div className={styles.notificationsDropdown}>
+          <div ref={notificationsRef} className={styles.notificationsDropdown}>
             <div className={styles.notificationsHeader}>
               <h3>Notifications</h3>
               <button className={styles.markAllRead}>Mark all read</button>

@@ -1,11 +1,11 @@
 .container {
-  min-height: calc(100vh - 80px);
-  background: var(--background);
-  padding: 40px 20px;
+  min-height: calc(100vh - 70px);
+  background: var(--bg-app);
+  padding: 16px;
 }
 
 .content {
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -13,101 +13,102 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
-  padding: 32px;
-  background: var(--surface);
-  border-radius: 16px;
-  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
 }
 
 .welcome h1 {
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .welcome p {
-  font-size: 16px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .statCard {
-  background: var(--surface);
-  padding: 24px;
-  border-radius: 12px;
+  background: var(--bg-surface);
+  padding: 12px;
+  border-radius: 10px;
   box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border-top: 4px solid;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--border-default);
+  transition: all 0.2s;
 }
 
 .statCard:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-500);
 }
 
 .statIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background: var(--background);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--color-primary-50);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--color-primary-500);
+  margin-bottom: 8px;
+}
+
+[data-theme='dark'] .statIcon {
+  background: rgba(66, 165, 245, 0.15);
 }
 
 .statContent {
   flex: 1;
 }
 
+.statLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
 .statValue {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
-  margin-bottom: 8px;
-}
-
-.statLabel {
-  font-size: 14px;
-  color: var(--text-secondary);
-  font-weight: 500;
+  margin-bottom: 2px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
 .section {
-  background: var(--surface);
-  padding: 24px;
-  border-radius: 12px;
+  background: var(--bg-surface);
+  padding: 14px;
+  border-radius: 10px;
   box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-default);
 }
 
 .sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-default);
 }
 
 .sectionHeader h2 {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -121,21 +122,22 @@
 
 .listingItem,
 .bidItem {
-  padding: 16px;
-  background: var(--background);
+  padding: 12px;
+  background: var(--bg-app);
   border-radius: 8px;
-  border: 1px solid var(--border);
-  transition: border-color 0.2s;
+  border: 1px solid var(--border-default);
+  transition: all 0.2s;
 }
 
 .listingItem:hover,
 .bidItem:hover {
-  border-color: var(--primary);
+  border-color: var(--color-primary-500);
+  background: var(--bg-hover);
 }
 
 .listingInfo h3,
 .bidInfo h4 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -145,7 +147,7 @@
 .bidAmount {
   font-size: 18px;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--color-primary-500);
 }
 
 .listingStats {
@@ -202,11 +204,21 @@
   color: var(--text-tertiary);
 }
 
+@media (max-width: 1200px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
   .welcome {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 12px;
   }
 
   .grid {

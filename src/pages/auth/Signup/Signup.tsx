@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Lock, User as UserIcon, Shield } from 'lucide-react';
+import { Mail, Lock, User as UserIcon } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/common/Button/Button';
 import { Input } from '@/components/common/Input/Input';
-import { Badge } from '@/components/common/Badge/Badge';
+
 import styles from '../Login/Login.module.css';
 
 export const Signup: React.FC = () => {
@@ -13,7 +13,7 @@ export const Signup: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [role, setRole] = useState<'buyer' | 'seller'>('buyer');
+  const role = 'user';
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const { signup } = useAuth();
@@ -48,10 +48,9 @@ export const Signup: React.FC = () => {
         transition={{ duration: 0.4 }}
       >
         <div className={styles.header}>
-          <Shield size={48} className={styles.logo} />
+          <img src="/logo.png" alt="QTrustBid" className={styles.logoImage} />
           <h1>Join QTrustBid</h1>
-          <p>Start your quantum-safe real estate journey</p>
-          <Badge variant="quantum">Quantum Protected</Badge>
+          <p>Start your secure real estate journey</p>
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -94,36 +93,6 @@ export const Signup: React.FC = () => {
             icon={<Lock size={20} />}
             required
           />
-
-          <div>
-            <label style={{ fontSize: '14px', fontWeight: 500, marginBottom: '8px', display: 'block' }}>
-              I am a:
-            </label>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <label style={{ flex: 1, cursor: 'pointer' }}>
-                <input
-                  type="radio"
-                  name="role"
-                  value="buyer"
-                  checked={role === 'buyer'}
-                  onChange={(e) => setRole(e.target.value as 'buyer' | 'seller')}
-                  style={{ marginRight: '8px' }}
-                />
-                Buyer
-              </label>
-              <label style={{ flex: 1, cursor: 'pointer' }}>
-                <input
-                  type="radio"
-                  name="role"
-                  value="seller"
-                  checked={role === 'seller'}
-                  onChange={(e) => setRole(e.target.value as 'buyer' | 'seller')}
-                  style={{ marginRight: '8px' }}
-                />
-                Real Estate Agent
-              </label>
-            </div>
-          </div>
 
           {error && <div className={styles.error}>{error}</div>}
 

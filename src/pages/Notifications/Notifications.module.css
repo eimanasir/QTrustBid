@@ -1,7 +1,7 @@
 .container {
-  min-height: calc(100vh - 80px);
-  background: var(--background);
-  padding: 40px 20px;
+  min-height: calc(100vh - 70px);
+  background: var(--bg-app);
+  padding: 16px;
 }
 
 .content {
@@ -13,40 +13,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .header h1 {
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .header p {
-  font-size: 16px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
 .filters {
   display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
-  padding: 20px;
-  background: var(--surface);
-  border-radius: 16px;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 10px;
+  background: var(--bg-surface);
+  border-radius: 8px;
   box-shadow: var(--shadow-sm);
 }
 
 .filterBtn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: var(--background);
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  font-size: 14px;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--bg-app);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-primary);
   cursor: pointer;
@@ -54,28 +54,28 @@
 }
 
 .filterBtn:hover {
-  border-color: var(--primary);
+  border-color: var(--color-primary-500);
 }
 
 .filterBtn.active {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
   color: white;
 }
 
 .notificationsList {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .notificationCard {
   display: flex;
-  gap: 16px;
-  padding: 20px;
-  background: var(--surface);
-  border-radius: 16px;
-  border: 2px solid var(--border);
+  gap: 10px;
+  padding: 12px;
+  background: var(--bg-surface);
+  border-radius: 8px;
+  border: 1px solid var(--border-default);
   box-shadow: var(--shadow-sm);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -83,20 +83,20 @@
 }
 
 .notificationCard:hover {
-  border-color: var(--primary);
+  border-color: var(--color-primary-500);
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .notificationCard.unread {
   background: linear-gradient(135deg, rgba(33, 150, 243, 0.05) 0%, rgba(33, 150, 243, 0.02) 100%);
-  border-color: var(--primary);
+  border-color: var(--color-primary-500);
 }
 
 .notifIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,34 +136,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .notifHeader h3 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .notifContent p {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 8px;
+  line-height: 1.4;
+  margin-bottom: 4px;
 }
 
 .notifTime {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-tertiary);
   font-weight: 500;
 }
 
 .markReadBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--background);
-  border: 2px solid var(--border);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--bg-app);
+  border: 1px solid var(--border-default);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,8 +174,8 @@
 }
 
 .markReadBtn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
   color: white;
 }
 
