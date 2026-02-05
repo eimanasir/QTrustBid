@@ -11,10 +11,8 @@ export interface User {
   bio?: string;
   verified: boolean;
   createdAt: string;
-  // Agent-specific fields
   agencyName?: string;
   licenseNumber?: string;
-  // Stats
   totalBids?: number;
   totalListings?: number;
   totalSales?: number;

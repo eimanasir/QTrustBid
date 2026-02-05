@@ -8,8 +8,8 @@ import { LiveChat } from '@/components/chat/LiveChat/LiveChat';
 import Landing from '@/pages/Landing/Landing';
 import { Login } from '@/pages/auth/Login/Login';
 import { Signup } from '@/pages/auth/Signup/Signup';
+import { OAuthCallback } from '@/pages/auth/OAuthCallback/OAuthCallback';
 import { Dashboard } from '@/pages/buyer/Dashboard/Dashboard';
-
 import { AdminDashboard } from '@/pages/admin/AdminDashboard/AdminDashboard';
 import { PropertyListing } from '@/pages/buyer/PropertyListing/PropertyListing';
 import { PropertyDetails } from '@/pages/buyer/PropertyDetails/PropertyDetails';
@@ -35,12 +35,22 @@ import { LiveBidding } from '@/pages/buyer/LiveBidding/LiveBidding';
 import '@/styles/global.css';
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  
   return isAuthenticated ? <>{children}</> : <Navigate to="/login" />;
 };
 
 const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  
   return isAuthenticated ? <Navigate to="/dashboard" /> : <>{children}</>;
 };
 
@@ -63,6 +73,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Landing />} />
       <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
       <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
+      <Route path="/oauth/callback" element={<OAuthCallback />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/faq" element={<FAQ />} />
       

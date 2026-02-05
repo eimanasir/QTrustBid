@@ -151,3 +151,43 @@
     flex-direction: column;
   }
 }
+.socialButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.socialButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark theme support for social buttons */
+[data-theme='dark'] .socialButton {
+  background-color: var(--color-neutral-800, #1f2937);
+  border-color: var(--color-neutral-700, #374151);
+}
+
+[data-theme='dark'] .socialButton:hover {
+  background-color: var(--color-neutral-700, #374151);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure SVG icons are visible in dark mode */
+[data-theme='dark'] .socialButton svg {
+  filter: brightness(1.1);
+}
+
+/* Divider text in dark mode */
+[data-theme='dark'] .divider span {
+  background-color: var(--color-neutral-900, #111827);
+  color: var(--color-neutral-400, #9ca3af);
+}
+
+/* Error message in dark mode */
+[data-theme='dark'] .error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
